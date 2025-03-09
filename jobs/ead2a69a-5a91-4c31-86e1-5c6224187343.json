@@ -1,0 +1,1 @@
+{"id": "ead2a69a-5a91-4c31-86e1-5c6224187343", "type": "txt2img", "status": "failed", "text": "use anime model and draw anime neeko, 8 images", "created_at": "2025-03-06T15:24:58.955336", "updated_at": "2025-03-06T15:24:58.955564", "images": [], "error": "cannot access local variable 'num_images' where it is not associated with a value"}

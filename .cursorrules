@@ -1,0 +1,3 @@
+Split files larger than 250 LOC.
+Use pnpm for installing packages.
+All animations should be 100ms max.

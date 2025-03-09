@@ -1,4 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ACET - AI Chat with Enhanced Tools
+
+ACET is a chat application with enhanced tools for AI-powered text and image generation.
+
+## Features
+
+- Text chat with AI using Groq API
+- Voice input with automatic transcription 
+- Image generation with Civitai's stable diffusion models
+- Support for multiple model selection
+- Drag and drop image upload
+- Responsive UI with dark/light mode
+
+## Setup
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   cd python_backend
+   pip install -r requirements.txt
+   ```
+3. Create environment files:
+   - Create `.env.local` in the root for frontend
+   - Create `.env` in the python_backend directory for backend
+
+4. Get API keys:
+   - Groq API key: https://console.groq.com/
+   - Civitai API token: https://civitai.com/user/account
+
+5. Add your API keys to the environment files:
+   ```
+   # In python_backend/.env
+   GROQ_API_KEY=your_groq_api_key
+   CIVITAI_API_TOKEN=your_civitai_api_token
+   ```
+
+6. Start the backend:
+   ```
+   cd python_backend
+   uvicorn app.main:app --reload
+   ```
+
+7. Start the frontend:
+   ```
+   npm run dev
+   ```
+
+8. Open http://localhost:3000 in your browser
+
+## Image Generation
+
+This application uses Civitai's API for image generation. The following models are available:
+
+- SD 1.5: Balanced quality and speed
+- SDXL: Higher quality, slower generation
+- Realistic Vision: Specialized for realistic images
+- DreamShaper: Creative and artistic outputs
+
+To generate images, simply type a prompt that describes the image, or ask the AI to create an image for you.
+
+## Development
+
+This project uses:
+- Next.js for the frontend
+- FastAPI for the backend
+- ShadcnUI for the UI components
+- Framer Motion for animations
 
 ## Getting Started
 
