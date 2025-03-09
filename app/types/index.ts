@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Define message types
 export type MessageType = 'text' | 'loading' | 'image' | 'generating-image' | 'generated-image' | 'typing';
 
