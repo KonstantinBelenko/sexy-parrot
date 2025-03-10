@@ -8,15 +8,19 @@ import InputArea from "./components/InputArea"
 import ImageViewer from "./components/ImageViewer"
 import TextSelectionLookup from "./components/TextSelectionLookup"
 import Glossary from "./components/Glossary"
+import MobileGlossary from "./components/MobileGlossary"
 import { useMessages } from "./hooks/useMessages"
 import { useInputHandling } from "./hooks/useInputHandling"
 import { useImageViewer } from "./hooks/useImageViewer"
 import { useMessageSending } from "./hooks/useMessageSending"
 import { useTextLookup } from "./hooks/useTextLookup"
+import { BookOpen } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   // State to trigger glossary refresh
   const [glossaryRefreshCounter, setGlossaryRefreshCounter] = useState(0);
+  const [isMobileGlossaryOpen, setIsMobileGlossaryOpen] = useState(false);
   
   // Function to trigger glossary refresh
   const triggerGlossaryRefresh = () => {
@@ -144,6 +148,25 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
+      {/* Mobile menu button */}
+      <div className="fixed top-4 right-4 z-50 lg:hidden">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsMobileGlossaryOpen(true)}
+          className="h-8 w-8 rounded-full"
+        >
+          <BookOpen className="h-4 w-4" />
+        </Button>
+      </div>
+
+      {/* Mobile glossary */}
+      <MobileGlossary
+        isOpen={isMobileGlossaryOpen}
+        onClose={() => setIsMobileGlossaryOpen(false)}
+        refreshTrigger={glossaryRefreshCounter}
+      />
+
       {/* Text selection lookup component */}
       <TextSelectionLookup onLookup={handleTextLookup} />
       

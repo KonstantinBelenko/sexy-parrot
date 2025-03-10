@@ -161,7 +161,7 @@ const InputArea: FC<InputAreaProps> = ({
   };
 
   return (
-    <div className="fixed w-[calc(100%-20rem)] pointer-events-none left-0" style={{ bottom: 0 }}>
+    <div className="fixed w-full lg:w-[calc(100%-20rem)] pointer-events-none left-0" style={{ bottom: 0 }}>
       <motion.div 
         className="w-full mx-auto flex justify-center items-end pointer-events-none"
         initial={{ y: 0 }}
@@ -218,13 +218,13 @@ const InputArea: FC<InputAreaProps> = ({
                 <Textarea 
                   ref={textareaRef}
                   placeholder="Create..." 
-                  className="w-full shadow-sm text-base min-h-[56px] max-h-[300px] rounded-[28px] pl-6 pr-24 py-3 resize-none overflow-hidden leading-[1.6] flex items-center"
+                  className="w-full shadow-sm text-sm md:text-base min-h-[44px] md:min-h-[56px] max-h-[300px] rounded-[28px] pl-4 md:pl-6 pr-20 md:pr-24 py-2 md:py-3 resize-none overflow-hidden leading-[1.6] flex items-center"
                   value={inputText}
                   onChange={handleInputChange}
                   rows={1}
                   style={{
                     height: 'auto',
-                    paddingTop: inputText ? '12px' : '13px',
+                    paddingTop: inputText ? '8px' : '9px',
                   }}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && !e.shiftKey && inputText.trim()) {
@@ -234,13 +234,13 @@ const InputArea: FC<InputAreaProps> = ({
                   }}
                   disabled={isRecording}
                 />
-                <div className="absolute right-2 top-7 transform -translate-y-1/2 flex gap-1">
+                <div className="absolute right-2 top-[22px] md:top-7 transform -translate-y-1/2 flex gap-1">
                   <motion.div whileTap={{ scale: 0.9 }}>
                     <Button 
                       size="icon" 
                       variant={isRecording ? "default" : "ghost"}
                       className={cn(
-                        "h-10 w-10 rounded-full cursor-pointer",
+                        "h-8 w-8 md:h-10 md:w-10 rounded-full cursor-pointer",
                         isTranscribing && "animate-pulse",
                         isRecording && "animate-pulse shadow-md bg-destructive text-destructive-foreground",
                         isRecordingInitializing && "animate-pulse opacity-70"
@@ -250,13 +250,13 @@ const InputArea: FC<InputAreaProps> = ({
                       disabled={isTranscribing || isSending || isRecordingInitializing}
                     >
                       {isRecording ? (
-                        <StopCircle className="h-5 w-5 text-white" />
+                        <StopCircle className="h-4 w-4 md:h-5 md:w-5 text-white" />
                       ) : isRecordingInitializing ? (
-                        <div className="h-5 w-5 flex items-center justify-center">
-                          <div className="h-2 w-2 bg-foreground/70 rounded-full animate-ping" />
+                        <div className="h-4 w-4 md:h-5 md:w-5 flex items-center justify-center">
+                          <div className="h-1.5 w-1.5 md:h-2 md:w-2 bg-foreground/70 rounded-full animate-ping" />
                         </div>
                       ) : (
-                        <Mic className="h-5 w-5" />
+                        <Mic className="h-4 w-4 md:h-5 md:w-5" />
                       )}
                     </Button>
                   </motion.div>
@@ -285,14 +285,14 @@ const InputArea: FC<InputAreaProps> = ({
                       size="icon" 
                       variant={inputText.trim() ? "default" : "ghost"}
                       className={cn(
-                        "h-10 w-10 rounded-full cursor-pointer",
+                        "h-8 w-8 md:h-10 md:w-10 rounded-full cursor-pointer",
                         isSending && "animate-pulse"
                       )}
                       aria-label="Send message"
                       onClick={handleSend}
                       disabled={!inputText.trim() || isSending}
                     >
-                      <ArrowUpCircle className="h-5 w-5" />
+                      <ArrowUpCircle className="h-4 w-4 md:h-5 md:w-5" />
                     </Button>
                   </motion.div>
                 </div>
